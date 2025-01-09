@@ -1,0 +1,26 @@
+#{extends 'main.html' /}
+#{set title:'Formulário dos Cursos' /}
+
+<h1>Insira os Dados do Curso</h1>
+
+<form action="@{Cursos.salvar}">
+
+	<input type="hidden" name="curso.id" value="${curso?.id}">
+	
+	<div class="mb-3">
+		<label class="form-label">Nome do Curso:</label><br>
+		<input class="form-control" type="text" name="curso.nomeCurso" value="${curso?.nomeCurso}">
+	</div>
+	
+	<div class="mb-3">
+		<label class="form-label">Código do curso:</label><br>
+		<input class="form-control" type="text" name="curso.codCurso" value="${curso?.codCurso}">
+		
+	</div>
+		
+	<div class="btn-group">
+  		<button type="submit" class="btn btn-primary">Cadastrar Curso</button>
+  		<a href="@{Alunos.listar}" class="btn btn-primary">Listagem de Cursos</a>
+	</div>
+
+</form>

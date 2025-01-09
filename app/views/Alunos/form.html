@@ -1,0 +1,39 @@
+#{extends 'main.html' /}
+#{set title:'Formulário de Alunos' /}
+
+<h1>Insira os Dados do Aluno</h1><br>
+
+<form action="@{Alunos.salvar}">
+	
+	<input type="hidden" name="aluno.id" ">
+
+	<div class="mb-3">
+		<label class="form-label">Nome:</label><br>
+		<input class="form-control type="text" name="aluno.nome" value="${aluno?.nome}">
+	</div>
+	
+	<div class="mb-3">
+		<label class="form-label">Matrícula:</label><br>
+		<input class="form-control type="text" name="aluno.matricula" value="${aluno?.matricula}">
+	
+	</div>
+		<div class="mb-3">
+		<label class="form-label">Senha:</label><br>
+		<input class="form-control" type="password" name="aluno.senha" value="${aluno?.senha}">
+	</div>
+	
+	<div class="mb-3">
+		<label class="form-label">Selecione o Curso:</label>
+		<select class="form-select" name="aluno.curso.id" value="${aluno?.curso}">
+			#{list items: cursos, as: 'c'}
+				<option value="${c.id}">${c.nomeCurso}</option>
+				
+			#{/list}
+		</select><br>
+	</div>
+
+	<div class="btn-group">
+  		<button type="submit" class="btn btn-primary">Cadastrar Aluno</button>
+  		<a href="@{Alunos.listar}" class="btn btn-primary">Listagem de Alunos</a>
+	</div>	
+</form>
